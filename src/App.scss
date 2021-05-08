@@ -1,0 +1,148 @@
+@import './stuff';
+html { scrollbar-color: #909090 transparent }
+header { font-size: 2rem }
+.filter-todo { padding: 1rem }
+.todo li { flex: 1 }
+.trash-btn { @include inside-out($red, #f7fffe) }
+.todo-item { padding: 0rem 0.5rem }
+:focus { outline: none }
+.fa-trash,.fa-check { pointer-events: none }
+h1, .todo-item { user-select: none }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: linear-gradient(120deg, $bg-yellow, $bg-orange);
+    background-size: 325%;
+    color: white;
+    font-family: "Poppins", sans-serif !important;
+    min-height: 100vh;
+    animation: bg-animation 25s infinite alternate;
+}
+
+header,
+form {
+    min-height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    input,
+    button {
+        padding: 0.5rem;
+        font-size: 2rem;
+        border: none;
+        background: white;
+    }
+    button {
+        color: $red;
+        background: #f7fffe;
+        cursor: pointer;
+        @include inside-out(#f7fffe, $red);
+    }
+}
+
+.todo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.todo-list {
+    min-width: 30%;
+    list-style: none;
+}
+
+.todo {
+    margin: 0.5rem;
+    background: white;
+    font-size: 1.5rem;
+    color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 1s ease;
+}
+
+.trash-btn,
+.complete-btn {
+    background: $red;
+    color: white;
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.complete-btn {
+    background: rgb(12, 212, 162) !important;
+    @include inside-out(rgb(12, 212, 162), #f7fffe);
+}
+
+.fall {
+    transform: translateY(10rem) rotateZ(20deg);
+    opacity: 0;
+}
+
+.completed {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+
+// CUSTOM SELECTOR
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    outline: 0;
+    box-shadow: none;
+    border: 0 !important;
+    background-image: none;
+    color: $red;
+    font-family: "Poppins", sans-serif;
+    cursor: pointer;
+    user-select: none;
+    width: 12rem;
+}
+
+.select {
+    margin: 1rem;
+    position: relative;
+    overflow: hidden;
+    &::after {
+        content: "\25BC";
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 1rem;
+        background: $red;
+        cursor: pointer;
+        pointer-events: none;
+    }
+}
+
+// CUSTOM SCROLLBAR
+::-webkit-scrollbar {
+    width: 16px;
+    background: none;
+    & * { background: transparent }
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background-clip: content-box;
+    background-color: #999;
+    &:hover { background: #888; }
+}
+
+// COOL INPUT
+.todo-input:focus::placeholder { text-indent: -1000%; }
+.todo-input::placeholder {
+    color: #000;
+    opacity: .55;
+    text-indent: 0;
+    transition: text-indent 5s .1s linear;
+}
