@@ -6,6 +6,7 @@ const Form = ({ setInputText, todos, setTodos, inputText, setStatus }) => {
     }
     const submitTodoHandler = (e) => {
         e.preventDefault();
+        if (inputText === '') return console.error('Todo Name Is Empty')
         setTodos([
             ...todos, {
                 text: inputText,

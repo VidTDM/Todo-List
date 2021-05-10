@@ -13,7 +13,6 @@ function App() {
     // run once when the app starts
     useEffect(() => {
         getLocalTodos();
-        console.clear();
     }, []);
     // Use Effect
     useEffect(() => {
