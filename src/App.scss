@@ -2,12 +2,11 @@
 html { scrollbar-color: #909090 transparent }
 header { font-size: 2rem }
 .filter-todo { padding: 1rem }
-.todo li { flex: 1 }
+.todo li { flex: 1;}
 .trash-btn { @include inside-out($red, #f7fffe) }
-.todo-item { padding: 0rem 0.5rem }
 :focus { outline: none }
 .fa-trash,.fa-check { pointer-events: none }
-h1, .todo-item { user-select: none }
+h1, li:not(.todo-item) { user-select: none }
 * {
     margin: 0;
     padding: 0;
@@ -55,8 +54,14 @@ form {
     list-style: none;
 }
 
+.todo-item {
+    padding: 0rem 0.5rem;
+    overflow-wrap: break-word !important;
+    margin: 0 auto;
+    width: 70%;
+}
+
 .todo {
-    margin: 0.5rem;
     background: white;
     font-size: 1.5rem;
     color: black;
@@ -64,6 +69,8 @@ form {
     justify-content: space-between;
     align-items: center;
     transition: all 1s ease;
+    width: 80%;
+    margin: 0 auto 10px;
 }
 
 .trash-btn,

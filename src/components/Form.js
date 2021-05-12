@@ -1,12 +1,11 @@
 import React from 'react';
 
 const Form = ({ setInputText, todos, setTodos, inputText, setStatus }) => {
-    const inputTextHandler = (e) => {
-        setInputText(e.target.value);
-    }
+    const inputTextHandler = (e) => {setInputText(e.target.value);}
     const submitTodoHandler = (e) => {
         e.preventDefault();
         if (inputText === '') return console.error('Todo Name Is Empty')
+        if (inputText.startsWith(' ')) return console.error('Todo Name Starts With A Space')
         setTodos([
             ...todos, {
                 text: inputText,
@@ -16,9 +15,7 @@ const Form = ({ setInputText, todos, setTodos, inputText, setStatus }) => {
         ]);
         setInputText('');
     }
-    const statusHandler = (e) => {
-        setStatus(e.target.value);
-    }
+    const statusHandler = (e) => {setStatus(e.target.value);}
     return (
         <form>
             <input value={inputText} onChange={inputTextHandler} type="text" placeholder="Enter Todo" className="todo-input"/>
