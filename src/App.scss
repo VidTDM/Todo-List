@@ -66,11 +66,11 @@ form {
     font-size: 1.5rem;
     color: black;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
     transition: all 1s ease;
     width: 80%;
     margin: 0 auto 10px;
+    align-items: start !important;
+    justify-content: space-between !important;
 }
 
 .trash-btn,
@@ -78,6 +78,7 @@ form {
     background: $red;
     color: white;
     border: none;
+    // padding: 100% 1rem;
     padding: 1rem;
     cursor: pointer;
     font-size: 1rem;
@@ -88,14 +89,9 @@ form {
     @include inside-out(rgb(12, 212, 162), #f7fffe);
 }
 
-.fall {
-    transform: translateY(10rem) rotateZ(20deg);
-    opacity: 0;
-}
-
 .completed {
     text-decoration: line-through;
-    opacity: 0.5;
+    opacity: .5;
 }
 
 // CUSTOM SELECTOR
@@ -152,4 +148,10 @@ select {
     opacity: .55;
     text-indent: 0;
     transition: text-indent 5s .1s linear;
+}
+
+// Custom Selection
+::selection {
+    color: #ccc;
+    background-color: darkslategrey;
 }

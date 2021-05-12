@@ -110,11 +110,11 @@ form button:hover {
   font-size: 1.5rem;
   color: black;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
   transition: all 1s ease;
   width: 80%;
   margin: 0 auto 10px;
+  align-items: start !important;
+  justify-content: space-between !important;
 }
 
 .trash-btn,
@@ -134,11 +134,6 @@ form button:hover {
 .complete-btn:hover {
   background: #f7fffe !important;
   color: #0cd4a2;
-}
-
-.fall {
-  transform: translateY(10rem) rotateZ(20deg);
-  opacity: 0;
 }
 
 .completed {
@@ -204,6 +199,11 @@ select {
   opacity: 0.55;
   text-indent: 0;
   transition: text-indent 5s 0.1s linear;
+}
+
+::selection {
+  color: #ccc;
+  background-color: darkslategrey;
 }
 
 /*# sourceMappingURL=App.css.map */
