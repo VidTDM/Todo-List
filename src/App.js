@@ -3,6 +3,7 @@ import "./App.css";
 // Importing Componenets
 import Form from "./components/Form";
 import TodoList from "./components/TodoList";
+import Navbar from './components/Navbar';
 
 function App() {
     // State Stuff
@@ -37,15 +38,19 @@ function App() {
     // Save to local
     const saveLocalTodos = () => {localStorage.setItem("todos", JSON.stringify(todos));};
     const getLocalTodos = () => {
-        if (localStorage.getItem("todos") === null) {
-            localStorage.setItem("todos", JSON.stringify([]));
-        } else {
-            let todoLocal = JSON.parse(localStorage.getItem("todos"));
-            setTodos(todoLocal);
+        switch (localStorage.getItem("todos")) {
+            case null:
+                localStorage.setItem("todos", JSON.stringify([]))
+                break;
+            default:
+                let todoLocal = JSON.parse(localStorage.getItem("todos"));
+                setTodos(todoLocal)
+                break;
         }
     };
     return (
         <div className="App">
+            <Navbar/>
             <header>
                 <h1>Todo List</h1>
             </header>

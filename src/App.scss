@@ -4,6 +4,7 @@ header { font-size: 2rem }
 .filter-todo { padding: 1rem }
 .todo li { flex: 1;}
 .trash-btn { @include inside-out($red, #f7fffe) }
+.hidden { display: none; }
 :focus { outline: none }
 .fa-trash,.fa-check { pointer-events: none }
 h1, li:not(.todo-item) { user-select: none }
@@ -17,7 +18,7 @@ body {
     background-image: linear-gradient(120deg, $bg-yellow, $bg-orange);
     background-size: 325%;
     color: white;
-    font-family: "Poppins", sans-serif !important;
+    font-family: "Poppins", sans-serif;
     min-height: 100vh;
     animation: bg-animation 25s infinite alternate;
 }
@@ -57,7 +58,7 @@ form {
 .todo-item {
     padding: 0rem 0.5rem;
     overflow-wrap: break-word !important;
-    margin: 0 auto;
+    margin: auto;
     width: 70%;
 }
 
@@ -154,4 +155,32 @@ select {
 ::selection {
     color: #ccc;
     background-color: darkslategrey;
+}
+
+// Navbar
+.navbar {
+    position: absolute;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    // background-color: #333;
+}
+
+
+.navbar-item {
+    font-size: 14px;
+    float: right;
+    font-family: "Poppins", sans-serif;
+    border: none;
+    margin: .1rem 0 0 .25rem;
+    background-color: #e83e86;
+    border-radius: .167rem;
+    &:last-child { margin: .1rem 0 0 .1rem !important; }
+    display: block;
+    background-color: #e83e86;
+    color: white;
+    text-align: center;
+    padding: .9rem 1.2em;
+    text-decoration: none;
+    cursor: pointer;
 }
