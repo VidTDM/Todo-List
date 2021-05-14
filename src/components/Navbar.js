@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
 function Navbar() {
     // Gen Stuff
@@ -13,8 +13,7 @@ function Navbar() {
         }
         function click(node) {
             var event = document.createEvent("MouseEvents");
-            event.initMouseEvent("click", true, false, null, 0, 0, 0, 0, 0,
-                                false, false, false, false, 0, null);
+            event.initMouseEvent("click", true, false, null, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
             return node.dispatchEvent(event);
         }
         saveFile(localStorage.todos)
