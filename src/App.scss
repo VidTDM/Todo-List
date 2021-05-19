@@ -79,7 +79,6 @@ form {
     background: $red;
     color: white;
     border: none;
-    // padding: 100% 1rem;
     padding: 1rem;
     cursor: pointer;
     font-size: 1rem;
@@ -95,7 +94,6 @@ form {
     opacity: .5;
 }
 
-// CUSTOM SELECTOR
 select {
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -128,7 +126,6 @@ select {
     }
 }
 
-// CUSTOM SCROLLBAR
 ::-webkit-scrollbar {
     width: 16px;
     background: none;
@@ -142,7 +139,6 @@ select {
     &:hover { background: #888; }
 }
 
-// COOL INPUT
 .todo-input:focus::placeholder { text-indent: -1000%; }
 .todo-input::placeholder {
     color: #000;
@@ -151,19 +147,16 @@ select {
     transition: text-indent 5s .1s linear;
 }
 
-// Custom Selection
 ::selection {
     color: #ccc;
     background-color: darkslategrey;
 }
 
-// Navbar
 .navbar {
     position: absolute;
     list-style: none;
     margin: 0;
     padding: 0;
-    // background-color: #333;
 }
 
 
@@ -183,4 +176,19 @@ select {
     padding: .9rem 1.2em;
     text-decoration: none;
     cursor: pointer;
+}
+
+@media (min-width: 100px) and (max-width: 641px) {
+    .todo-input {
+        width: 80%;
+        margin-left: 5px;
+    }
+    .select {
+        margin: 0;
+        margin-right: 5px
+    }
+    .todo {
+        width: auto;
+        div { display: flex }
+    }
 }

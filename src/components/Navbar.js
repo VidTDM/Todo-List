@@ -7,7 +7,9 @@ function Navbar() {
     const [fileText, setFileText] = useState("")
     const exportHandler = () => {
         function saveFile(Text_To_Save) {
-            const link = "data:application/x-whatever;base64," + window.btoa(Text_To_Save); 
+            const link = "data:text/json;charset=utf-8," + encodeURIComponent(localStorage.todos);
+            console.log(Text_To_Save);
+            console.log(link);
             setFileText(link);
             click(fileGen);
         }
@@ -16,6 +18,7 @@ function Navbar() {
             event.initMouseEvent("click", true, false, null, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
             return node.dispatchEvent(event);
         }
+        console.log(localStorage.todos);
         saveFile(localStorage.todos)
     }
     const importHandler = () => {
