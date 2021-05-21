@@ -68,10 +68,11 @@ form {
     color: black;
     display: flex;
     transition: all 1s ease;
-    width: 80%;
+    width: auto;
     margin: 0 auto 10px;
     align-items: start !important;
     justify-content: space-between !important;
+    div { display: flex }
 }
 
 .trash-btn,
@@ -85,8 +86,8 @@ form {
 }
 
 .complete-btn {
-    background: rgb(12, 212, 162) !important;
-    @include inside-out(rgb(12, 212, 162), #f7fffe);
+    background: #0cd4a2 !important;
+    @include inside-out(#0cd4a2, #f7fffe);
 }
 
 .completed {
@@ -112,8 +113,10 @@ select {
 
 .select {
     margin: 1rem;
+    margin-left: 0 !important;
     position: relative;
     overflow: hidden;
+    height: inherit;
     &::after {
         content: "\25BC";
         position: absolute;
@@ -161,14 +164,15 @@ select {
 
 
 .navbar-item {
+    $margin: .35714285714286rem;
     font-size: 14px;
     float: right;
     font-family: "Poppins", sans-serif;
     border: none;
-    margin: .1rem 0 0 .25rem;
+    margin: $margin 0 0 $margin;
     background-color: #e83e86;
     border-radius: .167rem;
-    &:last-child { margin: .1rem 0 0 .1rem !important; }
+    &:last-child { margin: $margin 0 0 $margin !important; }
     display: block;
     background-color: #e83e86;
     color: white;
@@ -176,9 +180,11 @@ select {
     padding: .9rem 1.2em;
     text-decoration: none;
     cursor: pointer;
+    @include inside-out(#e83e86, white);
 }
 
 @media (min-width: 100px) and (max-width: 641px) {
+    form > button { background-color: white }
     .todo-input {
         width: 80%;
         margin-left: 5px;

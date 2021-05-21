@@ -115,10 +115,13 @@ form button:hover {
   color: black;
   display: flex;
   transition: all 1s ease;
-  width: 80%;
+  width: auto;
   margin: 0 auto 10px;
   align-items: start !important;
   justify-content: space-between !important;
+}
+.todo div {
+  display: flex;
 }
 
 .trash-btn,
@@ -163,8 +166,10 @@ select {
 
 .select {
   margin: 1rem;
+  margin-left: 0 !important;
   position: relative;
   overflow: hidden;
+  height: inherit;
 }
 .select::after {
   content: "▼";
@@ -222,7 +227,7 @@ select {
   float: right;
   font-family: "Poppins", sans-serif;
   border: none;
-  margin: 0.1rem 0 0 0.25rem;
+  margin: 0.3571428571rem 0 0 0.3571428571rem;
   background-color: #e83e86;
   border-radius: 0.167rem;
   display: block;
@@ -232,12 +237,21 @@ select {
   padding: 0.9rem 1.2em;
   text-decoration: none;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 .navbar-item:last-child {
-  margin: 0.1rem 0 0 0.1rem !important;
+  margin: 0.3571428571rem 0 0 0.3571428571rem !important;
+}
+.navbar-item:hover {
+  background: white !important;
+  color: #e83e86;
 }
 
 @media (min-width: 100px) and (max-width: 641px) {
+  form > button {
+    background-color: white;
+  }
+
   .todo-input {
     width: 80%;
     margin-left: 5px;

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 function Navbar() {
+    const [display, setDisplay] = useState('none');
     // Gen Stuff
     const fileGen = document.getElementById('file-gen');
 
@@ -43,11 +44,16 @@ function Navbar() {
             fr.readAsText(files.item(0));
         });
     }
+    const popupHandler = () => {
+        if (display === 'none') return setDisplay('inline-block')
+        if (display === 'inline-block') return setDisplay('none')
+    }
     return (
         <div>
             <ul className="navbar">
-                <button className="navbar-item export" onClick={exportHandler}>Export</button>
-                <button className="navbar-item import" onClick={importHandler}>Import</button>
+                <button className="navbar-item export" onClick={exportHandler} style={{ 'display': display }}>Export</button>
+                <button className="navbar-item import" onClick={importHandler} style={{ 'display': display }}>Import</button>
+                <button className="navbar-item popup" onClick={popupHandler}><i className="fas fa-cog"></i></button>
             </ul>
             <a href={fileText} id="file-gen" className="hidden" download="todos_backup.json"></a>
             <input type="file" id="fileInput" className="hidden"/>
