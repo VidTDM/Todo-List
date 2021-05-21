@@ -7,11 +7,12 @@ const Form = ({ setInputText, todos, setTodos, inputText, setStatus }) => {
         if (inputText === '') return console.error('Todo Name Is Empty')
         if (inputText.startsWith(' ')) return console.error('Todo Name Starts With A Space')
         setTodos([
-            ...todos, {
+            {
                 text: inputText,
                 completed: false,
                 id: Math.random() * 1000
-            }
+            },
+            ...todos
         ]);
         setInputText('');
     }
