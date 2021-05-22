@@ -19,7 +19,7 @@ function App() {
     useEffect(() => {
         filterHandler();
         saveLocalTodos();
-    // eslint-disable-next-line
+        // eslint-disable-next-line
     }, [todos, status]);
     // Functions
     const filterHandler = () => {
@@ -36,7 +36,7 @@ function App() {
         }
     };
     // Save to local
-    const saveLocalTodos = () => {localStorage.setItem("todos", JSON.stringify(todos));};
+    const saveLocalTodos = () => { localStorage.setItem("todos", JSON.stringify(todos)); };
     const getLocalTodos = () => {
         switch (localStorage.getItem("todos")) {
             case null:
@@ -50,7 +50,7 @@ function App() {
     };
     return (
         <div className="App">
-            <Navbar/>
+            <Navbar />
             <header>
                 <h1>Todo List</h1>
             </header>

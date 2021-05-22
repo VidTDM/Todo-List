@@ -38,7 +38,7 @@ form {
     }
     button {
         color: $red;
-        background: #f7fffe;
+        background-color: #f7fffe;
         cursor: pointer;
         @include inside-out(#f7fffe, $red);
     }
@@ -69,6 +69,7 @@ form {
     display: flex;
     transition: all 1s ease;
     width: auto;
+    max-width: 95%; // Don't remove this future me
     margin: 0 auto 10px;
     align-items: start !important;
     justify-content: space-between !important;
@@ -104,6 +105,8 @@ select {
     box-shadow: none;
     border: 0 !important;
     background-image: none;
+    background-color: #fff;
+    height: 3.31rem;
     color: $red;
     font-family: "Poppins", sans-serif;
     cursor: pointer;
@@ -116,7 +119,6 @@ select {
     margin-left: 0 !important;
     position: relative;
     overflow: hidden;
-    height: inherit;
     &::after {
         content: "\25BC";
         position: absolute;
@@ -184,7 +186,10 @@ select {
 }
 
 @media (min-width: 100px) and (max-width: 641px) {
-    form > button { background-color: white }
+    form > button {
+        background-color: darken(#f7fffe, 2%);
+        @include inside-out(darken(#f7fffe, 2%), $red)
+    }
     .todo-input {
         width: 80%;
         margin-left: 5px;

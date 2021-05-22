@@ -56,7 +56,7 @@ function Navbar() {
                 <button className="navbar-item popup" onClick={popupHandler}><i className="fas fa-cog"></i></button>
             </ul>
             <a href={fileText} id="file-gen" className="hidden" download="todos_backup.json"></a>
-            <input type="file" id="fileInput" className="hidden"/>
+            <input type="file" id="fileInput" className="hidden" />
         </div>
     )
 }

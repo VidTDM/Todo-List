@@ -81,7 +81,7 @@ form button {
 header button,
 form button {
   color: #ff6f47;
-  background: #f7fffe;
+  background-color: #f7fffe;
   cursor: pointer;
   transition: all 0.3s ease;
 }
@@ -116,6 +116,7 @@ form button:hover {
   display: flex;
   transition: all 1s ease;
   width: auto;
+  max-width: 95%;
   margin: 0 auto 10px;
   align-items: start !important;
   justify-content: space-between !important;
@@ -157,6 +158,8 @@ select {
   box-shadow: none;
   border: 0 !important;
   background-image: none;
+  background-color: #fff;
+  height: 3.31rem;
   color: #ff6f47;
   font-family: "Poppins", sans-serif;
   cursor: pointer;
@@ -169,7 +172,6 @@ select {
   margin-left: 0 !important;
   position: relative;
   overflow: hidden;
-  height: inherit;
 }
 .select::after {
   content: "▼";
@@ -249,7 +251,12 @@ select {
 
 @media (min-width: 100px) and (max-width: 641px) {
   form > button {
-    background-color: white;
+    background-color: #edfffd;
+    transition: all 0.3s ease;
+  }
+  form > button:hover {
+    background: #ff6f47 !important;
+    color: #edfffd;
   }
 
   .todo-input {
