@@ -5,7 +5,7 @@ const Form = ({ setInputText, todos, setTodos, inputText, setStatus }) => {
     const submitTodoHandler = (e) => {
         e.preventDefault();
         if (inputText === '') return console.error('Todo Name Is Empty')
-        if (/^\s+$/.test(inputText)) return console.error('Todo Name Is A Space')
+        if (/^\s+$/.test(inputText)) return console.error('Todo Name Is Whitespace')
         if (inputText.length > 200) return console.error('Todo Name Too Log')
         setTodos([
             {
