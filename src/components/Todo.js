@@ -1,12 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 const Todo = ({ text, todo, todos, setTodos }) => {
+    const li = useRef(null);
+    // UseEffect
+    const newText = useRef();
+    console.log(newText.current);
+    useEffect(() => {
+        const regex = /(https|http):\/\/([a-z.0-9-]+)([\S+])*/gim;
+
+        newText.current = text.replace(regex, match => {
+            return `<a href="${match}" target="_blank" rel=noopener>${match}</a>`
+        });
+
+        li.current.innerHTML = newText.current;
+    });
+    console.log(newText.current);
     // Use States
     const [todo_itemDisplay, setTodo_itemDisplay] = useState('unset');
     const [todo_itemInputDisplay, setTodo_itemInputDisplay] = useState('none');
     const [editBtnDisplay, setEditBtnDisplay] = useState('unset');
     const [saveBtnDisplay, setSaveBtnDisplay] = useState('none');
-    const [editInputText, setEditInputText] = useState('')
+    const [editInputText, setEditInputText] = useState('');
     // Events
     const deleteHandler = () => { setTodos(todos.filter(el => el.id !== todo.id)) }
     const completeHandler = () => {
@@ -45,9 +59,8 @@ const Todo = ({ text, todo, todos, setTodos }) => {
     const editInputHandler = (e) => { setEditInputText(e.target.value) }
     return (
         <div className="todo">
-            <li className={`todo-item ${todo.completed ? "completed" : ''}`} style={{ display: todo_itemDisplay }}>{text}
-            </li>
-            <input value={editInputText} placeholder={text} style={{ display: todo_itemInputDisplay }} id="edit-input" onChange={editInputHandler}/>
+            <li className={`todo-item ${todo.completed ? "completed" : ''}`} style={{ display: todo_itemDisplay }} ref={li}>{text}</li>
+            <input value={editInputText} placeholder={text} style={{ display: todo_itemInputDisplay }} id="edit-input" onChange={editInputHandler} />
             <div>
                 <button onClick={editHandler} className="edit-btn" style={{ display: editBtnDisplay }}>
                     <i className="fas fa-pencil-alt"></i>

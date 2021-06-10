@@ -231,7 +231,15 @@ input::placeholder {
   margin: auto;
   width: 87.8%;
   font-size: 1.7rem;
-  border: 1px solid #bbb;
+  border: none;
+  border-bottom: 1.5px solid #bbb !important;
+  transition: border-bottom 200ms linear;
+}
+#edit-input:focus {
+  border-bottom: 1.5px solid #4d90fe !important;
+}
+#edit-input:hover {
+  border-bottom: 1.5px solid #7b7b7b !important;
 }
 
 ::selection {
@@ -269,6 +277,20 @@ input::placeholder {
 .navbar-item:hover {
   background: white !important;
   color: #e83e86;
+}
+
+a {
+  color: #0000be;
+  -webkit-text-decoration: none transparent;
+  text-decoration: underline transparent;
+  transition: all 225ms ease-in-out;
+}
+a:hover {
+  -webkit-text-decoration: underline currentColor;
+  text-decoration: underline currentColor;
+}
+a:visited {
+  color: #0000a5;
 }
 
 @media (min-width: 100px) and (max-width: 641px) {

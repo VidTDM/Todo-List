@@ -166,7 +166,11 @@ input::placeholder {
     margin: auto;
     width: 87.8%;
     font-size: 1.7rem;
-    border: 1px solid #bbb;
+    border: none;
+    border-bottom: 1.5px solid #bbb !important;
+    transition: border-bottom 200ms linear;
+    &:focus { border-bottom: 1.5px solid #4d90fe !important }
+    &:hover { border-bottom: 1.5px solid darken(#bbb, 25%) !important }
 }
 
 ::selection {
@@ -202,10 +206,26 @@ input::placeholder {
     @include inside-out(#e83e86, white);
 }
 
+// Fancy Links
+
+a {
+    color: lighten(darkblue, 10%);
+    -webkit-text-decoration: none transparent;
+        text-decoration: underline transparent;
+    transition: all 225ms ease-in-out;
+    &:hover {
+        -webkit-text-decoration: underline currentColor;
+            text-decoration: underline currentColor;
+    }
+    &:visited { color: lighten(darkblue, 5%) }
+}
+
+// Media Queries
+
 @media (min-width: 100px) and (max-width: 641px) {
     form > button {
         background-color: darken(#f7fffe, 2%);
-        @include inside-out(darken(#f7fffe, 2%), $red)
+        @include inside-out(darken(#f7fffe, 2%), $red);
     }
     .todo-input {
         width: 80%;

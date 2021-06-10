@@ -11,18 +11,19 @@ function App() {
     const [todos, setTodos] = useState([]);
     const [status, setStatus] = useState("all");
     const [filteredTodos, setFilteredTodos] = useState([]);
-    // run once when the app starts
-    useEffect(() => {
-        getLocalTodos();
-    }, []);
     // Use Effect
     useEffect(() => {
-        filterHandler();
-        saveLocalTodos();
-        // eslint-disable-next-line
-    }, [todos, status]);
-    // Functions
-    const filterHandler = () => {
+        switch (localStorage.getItem("todos")) {
+            case null:
+                localStorage.setItem("todos", JSON.stringify([]))
+                break;
+            default:
+                let todoLocal = JSON.parse(localStorage.getItem("todos"));
+                setTodos(todoLocal)
+                break;
+        }
+    }, []);
+    useEffect(() => {
         switch (status) {
             case "completed":
                 setFilteredTodos(todos.filter((todo) => todo.completed === true));
@@ -34,20 +35,8 @@ function App() {
                 setFilteredTodos(todos);
                 break;
         }
-    };
-    // Save to local
-    const saveLocalTodos = () => { localStorage.setItem("todos", JSON.stringify(todos)); };
-    const getLocalTodos = () => {
-        switch (localStorage.getItem("todos")) {
-            case null:
-                localStorage.setItem("todos", JSON.stringify([]))
-                break;
-            default:
-                let todoLocal = JSON.parse(localStorage.getItem("todos"));
-                setTodos(todoLocal)
-                break;
-        }
-    };
+        localStorage.setItem("todos", JSON.stringify(todos));
+    }, [todos, status]);
     return (
         <div className="App">
             <Navbar />
