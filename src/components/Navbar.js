@@ -6,7 +6,6 @@ function Navbar() {
     const fileGen = document.getElementById('file-gen');
 
     const [fileText, setFileText] = useState("")
-    const supportHandler = () => {}
     const exportHandler = () => {
         function saveFile(Text_To_Save) {
             const link = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.parse(localStorage.todos));
@@ -52,7 +51,6 @@ function Navbar() {
     return (
         <div>
             <ul className="navbar">
-                <button className="navbar-item support" onClick={supportHandler} style={{ 'display': display }}>Support</button>
                 <button className="navbar-item export" onClick={exportHandler} style={{ 'display': display }}>Export</button>
                 <button className="navbar-item import" onClick={importHandler} style={{ 'display': display }}>Import</button>
                 <button className="navbar-item popup" onClick={popupHandler}><i className="fas fa-cog"></i></button>

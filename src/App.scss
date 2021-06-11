@@ -79,11 +79,12 @@ form {
 .edit-btn,
 .save-btn,
 .trash-btn,
-.complete-btn {
+.complete-btn,
+.schedule-btn {
     background: $red;
     color: white;
     border: none;
-    padding: 1rem;
+    padding: .75rem;
     cursor: pointer;
     font-size: 1rem;
 }
@@ -91,12 +92,12 @@ form {
 .edit-btn,
 .save-btn {
     background-color: #777 !important;
-    @include inside-out(#777, white);
+    @include inside-out(#777, #f7fffe);
 }
 
 .complete-btn {
     background: #0cd4a2 !important;
-    @include inside-out(#0cd4a2, #f7fffe);
+    @include inside-out(#0cd4a2, #fff);
 }
 
 .completed {

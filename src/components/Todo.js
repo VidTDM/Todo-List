@@ -4,7 +4,6 @@ const Todo = ({ text, todo, todos, setTodos }) => {
     const li = useRef(null);
     // UseEffect
     const newText = useRef();
-    console.log(newText.current);
     useEffect(() => {
         const regex = /(https|http):\/\/([a-z.0-9-]+)([\S+])*/gim;
 
@@ -14,7 +13,6 @@ const Todo = ({ text, todo, todos, setTodos }) => {
 
         li.current.innerHTML = newText.current;
     });
-    console.log(newText.current);
     // Use States
     const [todo_itemDisplay, setTodo_itemDisplay] = useState('unset');
     const [todo_itemInputDisplay, setTodo_itemInputDisplay] = useState('none');
@@ -60,7 +58,7 @@ const Todo = ({ text, todo, todos, setTodos }) => {
     return (
         <div className="todo">
             <li className={`todo-item ${todo.completed ? "completed" : ''}`} style={{ display: todo_itemDisplay }} ref={li}>{text}</li>
-            <input value={editInputText} placeholder={text} style={{ display: todo_itemInputDisplay }} id="edit-input" onChange={editInputHandler} />
+            <input value={editInputText} placeholder={text} style={{ display: todo_itemInputDisplay }} id="edit-input" onChange={editInputHandler} onKeyDown={e => { if (e.key === 'Enter') saveHandler() }} />
             <div>
                 <button onClick={editHandler} className="edit-btn" style={{ display: editBtnDisplay }}>
                     <i className="fas fa-pencil-alt"></i>
