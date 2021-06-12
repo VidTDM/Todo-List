@@ -59,7 +59,7 @@ const Todo = ({ text, todo, todos, setTodos }) => {
         <div className="todo">
             <li className={`todo-item ${todo.completed ? "completed" : ''}`} style={{ display: todo_itemDisplay }} ref={li}>{text}</li>
             <input value={editInputText} placeholder={text} style={{ display: todo_itemInputDisplay }} id="edit-input" onChange={editInputHandler} onKeyDown={e => { if (e.key === 'Enter') saveHandler() }} />
-            <div>
+            <div className="todo-actions-list">
                 <button onClick={editHandler} className="edit-btn" style={{ display: editBtnDisplay }}>
                     <i className="fas fa-pencil-alt"></i>
                 </button>

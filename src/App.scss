@@ -224,20 +224,30 @@ a {
 // Media Queries
 
 @media (min-width: 100px) and (max-width: 641px) {
+    .todo {
+        position: relative;
+        margin: 0 auto 4.5rem;
+    }
+
     form > button {
         background-color: darken(#f7fffe, 2%);
         @include inside-out(darken(#f7fffe, 2%), $red);
     }
+
     .todo-input {
         width: 80%;
         margin-left: 5px;
     }
+
     .select {
         margin: 0;
         margin-right: 5px
     }
-    .todo {
-        width: auto;
-        div { display: flex }
+
+    .todo-actions-list {
+        display: flex;
+        position: absolute;
+        right: 0;
+        bottom: -3.2rem;
     }
 }
