@@ -7,9 +7,12 @@ const Todo = ({ text, todo, todos, setTodos }) => {
     useEffect(() => {
         const regex = /(https|http):\/\/([a-z.0-9-]+)([\S+])*/gim;
 
-        newText.current = text.replace(regex, match => {
-            return `<a href="${match}" target="_blank" rel=noopener>${match}</a>`
-        });
+        newText.current = text
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(regex, match => {
+                return `<a href="${match} target="_blank" rel=noopener>${match}</a>`
+            });
 
         li.current.innerHTML = newText.current;
     });

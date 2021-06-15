@@ -71,16 +71,15 @@ form {
     width: auto;
     max-width: 95%; // Don't remove this future me
     margin: 0 auto 10px;
-    align-items: start !important;
+    align-items: flex-start !important;
     justify-content: space-between !important;
-    div { display: flex }
+    .todo-actions-list { display: flex }
 }
 
 .edit-btn,
 .save-btn,
 .trash-btn,
-.complete-btn,
-.schedule-btn {
+.complete-btn {
     background: $red;
     color: white;
     border: none;
@@ -224,19 +223,9 @@ a {
 // Media Queries
 
 @media (min-width: 100px) and (max-width: 641px) {
-    .todo {
-        position: relative;
-        margin: 0 auto 4.5rem;
-    }
-
     form > button {
         background-color: darken(#f7fffe, 2%);
         @include inside-out(darken(#f7fffe, 2%), $red);
-    }
-
-    .todo-input {
-        width: 80%;
-        margin-left: 5px;
     }
 
     .select {
@@ -244,10 +233,23 @@ a {
         margin-right: 5px
     }
 
+    .todo-input {
+        width: 80%;
+        margin-left: 5px;
+    }
+
     .todo-actions-list {
         display: flex;
         position: absolute;
         right: 0;
-        bottom: -3.2rem;
+        bottom: -3.05rem;
+        width: 100%;
+        background-color: #fff;
+        div { margin-left: 50%; }
+    }
+
+    .todo {
+        position: relative;
+        margin: 0 auto 4.5rem;
     }
 }

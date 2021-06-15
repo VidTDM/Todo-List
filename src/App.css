@@ -118,18 +118,17 @@ form button:hover {
   width: auto;
   max-width: 95%;
   margin: 0 auto 10px;
-  align-items: start !important;
+  align-items: flex-start !important;
   justify-content: space-between !important;
 }
-.todo div {
+.todo .todo-actions-list {
   display: flex;
 }
 
 .edit-btn,
 .save-btn,
 .trash-btn,
-.complete-btn,
-.schedule-btn {
+.complete-btn {
   background: #ff6f47;
   color: white;
   border: none;
@@ -295,11 +294,6 @@ a:visited {
 }
 
 @media (min-width: 100px) and (max-width: 641px) {
-  .todo {
-    position: relative;
-    margin: 0 auto 4.5rem;
-  }
-
   form > button {
     background-color: #edfffd;
     transition: all 0.3s ease;
@@ -309,21 +303,31 @@ a:visited {
     color: #edfffd;
   }
 
-  .todo-input {
-    width: 80%;
-    margin-left: 5px;
-  }
-
   .select {
     margin: 0;
     margin-right: 5px;
+  }
+
+  .todo-input {
+    width: 80%;
+    margin-left: 5px;
   }
 
   .todo-actions-list {
     display: flex;
     position: absolute;
     right: 0;
-    bottom: -3.2rem;
+    bottom: -3.05rem;
+    width: 100%;
+    background-color: #fff;
+  }
+  .todo-actions-list div {
+    margin-left: 50%;
+  }
+
+  .todo {
+    position: relative;
+    margin: 0 auto 4.5rem;
   }
 }
 
