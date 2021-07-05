@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 function Navbar() {
     const [display, setDisplay] = useState('none');
+    const [cogState, setCogState] = useState('fas fa-cog')
     // Gen Stuff
     const fileGen = document.getElementById('file-gen');
 
@@ -48,12 +49,17 @@ function Navbar() {
         if (display === 'none') return setDisplay('inline-block')
         if (display === 'inline-block') return setDisplay('none')
     }
+    // Fancy stuff
+    const spin = () => setCogState('fas fa-cog fa-spin');
+    const unSpin = () => setCogState('fas fa-cog');
     return (
         <div>
             <ul className="navbar">
                 <button className="navbar-item export" onClick={exportHandler} style={{ 'display': display }}>Export</button>
                 <button className="navbar-item import" onClick={importHandler} style={{ 'display': display }}>Import</button>
-                <button className="navbar-item popup" onClick={popupHandler}><i className="fas fa-cog"></i></button>
+                <button className="navbar-item popup" onClick={popupHandler} onMouseOver={spin} onMouseOut={unSpin}>
+                    <i className={cogState} id="cog"></i>
+                </button>
             </ul>
             <a href={fileText} id="file-gen" className="hidden" download="todos_backup.json">download</a>
             <input type="file" id="fileInput" className="hidden" />
