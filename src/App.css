@@ -158,8 +158,20 @@ form button:hover {
 }
 
 .completed {
-  text-decoration: line-through;
-  opacity: 0.5;
+  text-decoration: line-through currentColor;
+  opacity: 0.6;
+}
+.completed a {
+  transition: all 225ms ease-in-out;
+  text-decoration: line-through black;
+}
+.completed a:hover {
+  text-decoration: none transparent;
+}
+.completed a::selection {
+  color: #ccc;
+  background-color: #345757;
+  text-decoration: underline currentColor;
 }
 
 select {
@@ -244,7 +256,13 @@ input::placeholder {
 
 ::selection {
   color: #ccc;
-  background-color: darkslategrey;
+  background-color: #2f4f4f;
+}
+
+a::selection {
+  color: #ccc;
+  background-color: #2f4f4f;
+  text-decoration: underline currentColor;
 }
 
 .navbar {
@@ -280,13 +298,11 @@ input::placeholder {
 }
 
 a {
-  color: #0000be;
-  -webkit-text-decoration: none transparent;
   text-decoration: underline transparent;
+  color: #0000be;
   transition: all 225ms ease-in-out;
 }
 a:hover {
-  -webkit-text-decoration: underline currentColor;
   text-decoration: underline currentColor;
 }
 a:visited {

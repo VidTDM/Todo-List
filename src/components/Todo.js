@@ -11,7 +11,7 @@ const Todo = ({ text, todo, todos, setTodos }) => {
             .replace(/</g, '&lt;')
             .replace(/>/g, '&gt;')
             .replace(regex, match => {
-                return `<a href="${match} target="_blank" rel=noopener>${match}</a>`
+                return `<a href="${match}" target="_blank" rel=noopener>${match}</a>`
             });
 
         li.current.innerHTML = newText.current;

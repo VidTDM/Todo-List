@@ -100,15 +100,25 @@ form {
 }
 
 .completed {
-    text-decoration: line-through;
-    opacity: .5;
+    text-decoration: line-through currentColor;
+    opacity: .6;
+    & a {
+        transition: all 225ms ease-in-out;
+        text-decoration: line-through black;
+        &:hover { text-decoration: none transparent }
+        &::selection {
+            color: #ccc;
+            background-color: lighten(#2f4f4f, 2.5%);
+            text-decoration: underline currentColor;
+        }
+    }
 }
 
 select {
     -webkit-appearance: none;
-    -moz-appearance: none;
-    -ms-appearance: none;
-    appearance: none;
+        -moz-appearance: none;
+                -ms-appearance: none;
+                    appearance: none;
     outline: 0;
     box-shadow: none;
     border: 0 !important;
@@ -175,7 +185,12 @@ input::placeholder {
 
 ::selection {
     color: #ccc;
-    background-color: darkslategrey;
+    background-color: #2f4f4f;
+}
+a::selection {
+    color: #ccc;
+    background-color: #2f4f4f;
+    text-decoration: underline currentColor;
 }
 
 .navbar {
@@ -209,14 +224,10 @@ input::placeholder {
 // Fancy Links
 
 a {
+    text-decoration: underline transparent;
     color: lighten(darkblue, 10%);
-    -webkit-text-decoration: none transparent;
-        text-decoration: underline transparent;
     transition: all 225ms ease-in-out;
-    &:hover {
-        -webkit-text-decoration: underline currentColor;
-            text-decoration: underline currentColor;
-    }
+    &:hover { text-decoration: underline currentColor; }
     &:visited { color: lighten(darkblue, 5%) }
 }
 
