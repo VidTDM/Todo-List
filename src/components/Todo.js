@@ -21,7 +21,7 @@ const Todo = ({ text, todo, todos, setTodos }) => {
     const [todo_itemInputDisplay, setTodo_itemInputDisplay] = useState('none');
     const [editBtnDisplay, setEditBtnDisplay] = useState('unset');
     const [saveBtnDisplay, setSaveBtnDisplay] = useState('none');
-    const [editInputText, setEditInputText] = useState('');
+    const [editInputText, setEditInputText] = useState(text);
     // Events
     const deleteHandler = () => { setTodos(todos.filter(el => el.id !== todo.id)) }
     const completeHandler = () => {
@@ -54,7 +54,8 @@ const Todo = ({ text, todo, todos, setTodos }) => {
         todos.forEach(item => {
             if (item.id === todo.id) item.text = editInputText
         });
-        setTodos(todos)
+        setTodos(todos);
+        setEditInputText(text);
         localStorage.setItem('todos', JSON.stringify(todos));
     }
     const editInputHandler = (e) => { setEditInputText(e.target.value) }
