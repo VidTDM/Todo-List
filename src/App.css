@@ -1,4 +1,12 @@
 @charset "UTF-8";
+@-webkit-keyframes bg-animation {
+  0% {
+    background-position: left;
+  }
+  100% {
+    background-position: right;
+  }
+}
 @keyframes bg-animation {
   0% {
     background-position: left;
@@ -44,7 +52,10 @@ header {
 }
 
 h1, li:not(.todo-item) {
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 * {
@@ -56,10 +67,11 @@ h1, li:not(.todo-item) {
 body {
   background-image: linear-gradient(120deg, #f6d365, #fda085);
   background-size: 325%;
-  color: white;
+  color: #fff;
   font-family: "Poppins", sans-serif;
   min-height: 100vh;
-  animation: bg-animation 25s infinite alternate;
+  -webkit-animation: bg-animation 25s infinite alternate;
+          animation: bg-animation 25s infinite alternate;
 }
 
 header,
@@ -98,7 +110,7 @@ form button:hover {
 }
 
 .todo-list {
-  min-width: 30%;
+  width: 95%;
   list-style: none;
 }
 
@@ -120,9 +132,6 @@ form button:hover {
   margin: 0 auto 10px;
   align-items: flex-start !important;
   justify-content: space-between !important;
-}
-.todo .todo-actions-list {
-  display: flex;
 }
 
 .edit-btn,
@@ -158,26 +167,34 @@ form button:hover {
 }
 
 .completed {
-  text-decoration: line-through currentColor;
+  -webkit-text-decoration: line-through currentColor;
+          text-decoration: line-through currentColor;
   opacity: 0.6;
 }
 .completed a {
   transition: all 225ms ease-in-out;
-  text-decoration: line-through black;
+  -webkit-text-decoration: line-through black;
+          text-decoration: line-through black;
 }
 .completed a:hover {
-  text-decoration: none transparent;
+  -webkit-text-decoration: none transparent;
+          text-decoration: none transparent;
+}
+.completed a::-moz-selection {
+  color: #ccc;
+  background-color: #345757;
+  text-decoration: underline currentColor;
 }
 .completed a::selection {
   color: #ccc;
   background-color: #345757;
-  text-decoration: underline currentColor;
+  -webkit-text-decoration: underline currentColor;
+          text-decoration: underline currentColor;
 }
 
 select {
   -webkit-appearance: none;
   -moz-appearance: none;
-  -ms-appearance: none;
   appearance: none;
   outline: 0;
   box-shadow: none;
@@ -188,7 +205,10 @@ select {
   color: #ff6f47;
   font-family: "Poppins", sans-serif;
   cursor: pointer;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   width: 12rem;
 }
 
@@ -226,8 +246,32 @@ select {
   background: #888;
 }
 
+input:focus::-moz-placeholder {
+  text-indent: -1000%;
+}
+
+input:focus:-ms-input-placeholder {
+  text-indent: -1000%;
+}
+
 input:focus::placeholder {
   text-indent: -1000%;
+}
+
+input::-moz-placeholder {
+  color: #000;
+  opacity: 0.55;
+  text-indent: 0;
+  -moz-transition: text-indent 5s 0.1s linear;
+  transition: text-indent 5s 0.1s linear;
+}
+
+input:-ms-input-placeholder {
+  color: #000;
+  opacity: 0.55;
+  text-indent: 0;
+  -ms-transition: text-indent 5s 0.1s linear;
+  transition: text-indent 5s 0.1s linear;
 }
 
 input::placeholder {
@@ -254,15 +298,27 @@ input::placeholder {
   border-bottom: 1.5px solid #7b7b7b !important;
 }
 
+::-moz-selection {
+  color: #ccc;
+  background-color: #2f4f4f;
+}
+
 ::selection {
   color: #ccc;
   background-color: #2f4f4f;
 }
 
-a::selection {
+a::-moz-selection {
   color: #ccc;
   background-color: #2f4f4f;
   text-decoration: underline currentColor;
+}
+
+a::selection {
+  color: #ccc;
+  background-color: #2f4f4f;
+  -webkit-text-decoration: underline currentColor;
+          text-decoration: underline currentColor;
 }
 
 .navbar {
@@ -298,12 +354,14 @@ a::selection {
 }
 
 a {
-  text-decoration: underline transparent;
+  -webkit-text-decoration: underline transparent;
+          text-decoration: underline transparent;
   color: #0000be;
   transition: all 225ms ease-in-out;
 }
 a:hover {
-  text-decoration: underline currentColor;
+  -webkit-text-decoration: underline currentColor;
+          text-decoration: underline currentColor;
 }
 a:visited {
   color: #0000a5;
@@ -345,6 +403,4 @@ a:visited {
     position: relative;
     margin: 0 auto 4.5rem;
   }
-}
-
-/*# sourceMappingURL=App.css.map */
+}/*# sourceMappingURL=App.css.map */

@@ -17,7 +17,7 @@ h1, li:not(.todo-item) { user-select: none }
 body {
     background-image: linear-gradient(120deg, $bg-yellow, $bg-orange);
     background-size: 325%;
-    color: white;
+    color: #fff;
     font-family: "Poppins", sans-serif;
     min-height: 100vh;
     animation: bg-animation 25s infinite alternate;
@@ -51,7 +51,7 @@ form {
 }
 
 .todo-list {
-    min-width: 30%;
+    width: 95%;
     list-style: none;
 }
 
@@ -73,7 +73,6 @@ form {
     margin: 0 auto 10px;
     align-items: flex-start !important;
     justify-content: space-between !important;
-    .todo-actions-list { display: flex }
 }
 
 .edit-btn,
