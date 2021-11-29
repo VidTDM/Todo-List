@@ -31,14 +31,6 @@ header {
   flex: 1;
 }
 
-.trash-btn {
-  transition: all 0.3s ease;
-}
-.trash-btn:hover {
-  background: #f7fffe !important;
-  color: #ff6f47;
-}
-
 .hidden {
   display: none;
 }
@@ -138,7 +130,6 @@ form button:hover {
 .save-btn,
 .trash-btn,
 .complete-btn {
-  background: #ff6f47;
   color: white;
   border: none;
   padding: 1rem;
@@ -146,24 +137,40 @@ form button:hover {
   font-size: 1rem;
 }
 
-.edit-btn,
-.save-btn {
-  background-color: #777 !important;
+.edit-btn {
+  background-color: #777;
   transition: all 0.3s ease;
 }
-.edit-btn:hover,
+.edit-btn:hover {
+  background: #fff !important;
+  color: #777;
+}
+
+.save-btn {
+  background-color: #777;
+  transition: all 0.3s ease;
+}
 .save-btn:hover {
-  background: #f7fffe !important;
+  background: #fff !important;
   color: #777;
 }
 
 .complete-btn {
-  background: #0cd4a2 !important;
+  background-color: #0cd4a2;
   transition: all 0.3s ease;
 }
 .complete-btn:hover {
   background: #fff !important;
   color: #0cd4a2;
+}
+
+.trash-btn {
+  background-color: #ff6f47;
+  transition: all 0.3s ease;
+}
+.trash-btn:hover {
+  background: #fff !important;
+  color: #ff6f47;
 }
 
 .completed {

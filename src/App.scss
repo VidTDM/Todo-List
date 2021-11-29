@@ -3,7 +3,6 @@ html { scrollbar-color: #909090 transparent }
 header { font-size: 2rem }
 .filter-todo { padding: 1rem }
 .todo li { flex: 1;}
-.trash-btn { @include inside-out($red, #f7fffe) }
 .hidden { display: none; }
 :focus { outline: none }
 .fa-trash,.fa-check { pointer-events: none }
@@ -79,7 +78,6 @@ form {
 .save-btn,
 .trash-btn,
 .complete-btn {
-    background: $red;
     color: white;
     border: none;
     padding: 1rem;
@@ -87,15 +85,12 @@ form {
     font-size: 1rem;
 }
 
-.edit-btn,
-.save-btn {
-    background-color: #777 !important;
-    @include inside-out(#777, #f7fffe);
-}
-
-.complete-btn {
-    background: #0cd4a2 !important;
-    @include inside-out(#0cd4a2, #fff);
+$button-colors: ("edit-btn": #777, "save-btn": #777, "complete-btn": #0cd4a2, "trash-btn": $red);
+@each $button, $color in $button-colors {
+    .#{$button} {
+        background-color: $color;
+        @include inside-out($color, #fff);
+    }
 }
 
 .completed {
