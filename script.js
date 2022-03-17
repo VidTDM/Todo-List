@@ -9,7 +9,7 @@ switch (localStorage.getItem('todos')) {
 
 function setTodos(todos) {
     const ul = document.querySelector('ul.todo-list');
-    ul.innerHTML = '';
+    ul.innerHTML = ''
     const reverseTodos = todos.reverse();
     reverseTodos.forEach(el => {
         const todo = document.createElement('div');
