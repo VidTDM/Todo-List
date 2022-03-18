@@ -35,11 +35,11 @@ function setTodos(todos) {
 function createTodo() {
     const todoTextInput = document.querySelectorAll('input.form-control')[0];
     const tagTextInput = document.querySelectorAll('input.form-control')[1];
-    const closeButton = document.querySelector('.close-');
+    const closeButton = document.querySelector('.btn-close');
 
     const rawTodoText = todoTextInput.value;
     const tag = tagTextInput.value;
-    if (rawTodoText === '' || /^s+$/.test(rawTodoText) || rawTodoText.length > 200 || tag.length > 10) return closeButton.click()
+    if (rawTodoText === '' || tagTextInput === '' ||/^s+$/.test(rawTodoText) || rawTodoText.length > 200 || tag.length > 10) return closeButton.click()
     const todoText = rawTodoText
         .replace(/</g, '&lt;')
         .replace(/>/g, '&gt;')
